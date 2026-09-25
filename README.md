@@ -1,5 +1,9 @@
 # korean-notice-mcp
 
+[![npm](https://img.shields.io/npm/v/korean-notice-mcp.svg)](https://www.npmjs.com/package/korean-notice-mcp) [![test](https://github.com/RosieOh/korean-notice-mcp/actions/workflows/test.yml/badge.svg)](https://github.com/RosieOh/korean-notice-mcp/actions/workflows/test.yml) [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+한국어 | [English](https://github.com/RosieOh/korean-notice-mcp/blob/main/README-EN.md)
+
 **작년 공고와 올해 공고를 넣으면, 바뀐 신청조건과 준비할 서류를 원문 근거와 함께 알려주는 MCP 서버입니다.**
 
 한국 지자체·공공기관의 모집공고(HWP, HWPX)를 AI 앱(Claude Desktop 등)에서 바로 읽게 해 줍니다. 모든 결과에는 원문 위치와 문서 해시가 붙어, 사람이 원문과 대조할 수 있습니다.
@@ -9,6 +13,8 @@
 ![작년·올해 청년동아리 공고 비교 데모](https://raw.githubusercontent.com/RosieOh/korean-notice-mcp/main/docs/demo-compare.gif)
 
 위 화면은 실제 공개 공고(장수군 청년동아리 2025 HWP → 2026 HWPX)를 비교한 출력을 그대로 녹화한 것입니다. 1위는 "고유번호증 또는 사업자등록증"이 필수에서 조건부로 바뀐 것, 2위는 신청기간, 3위는 신청 연령 하한이 15세에서 만 18세로 오른 것입니다. 각 항목의 근거 위치를 `get_evidence`에 넣으면 해당 원문을 다시 확인할 수 있습니다.
+
+공식 [MCP 레지스트리](https://registry.modelcontextprotocol.io)에 `io.github.RosieOh/korean-notice-mcp`로 등록되어 있습니다.
 
 ## 빠르게 써 보기
 

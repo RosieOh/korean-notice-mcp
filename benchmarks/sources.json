@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "provenance": "장수군 공식 홈페이지의 공개 모집공고. 원문과 추출 전문은 data/ 아래 로컬 보관하며 재배포하지 않음.",
+  "annotation_status": "AI가 원문을 대조해 작성하는 초안. 사람의 독립 검수 전.",
+  "selection_limit": "하나의 지자체에 게시된 5개 사업의 편의 표본. 전국 대표성 없음. 활력수당의 2026년 문서는 지역정착 사업을 함께 안내하므로 공통/활력 항목만 평가. 지역정착은 양년 추가모집끼리 비교.",
+  "documents": [
+    {
+      "id": "club-2025",
+      "title": "2025 청년동아리",
+      "file": "club-2025.hwp",
+      "page_url": "https://www.jangsu.go.kr/town/board/view.jangsu?boardId=BBS_0000025&dataSid=553009",
+      "download_url": "https://www.jangsu.go.kr/town/board/download.jangsu?boardId=BBS_0000025&dataSid=553009&fileSid=365441&command=update",
+      "redistribution": "not_included"
+    },
+    {
+      "id": "club-2026",
+      "title": "2026 청년동아리",
+      "file": "club-2026.hwpx",
+      "page_url": "https://www.jangsu.go.kr/town/board/view.jangsu?boardId=BBS_0000025&dataSid=574249",
+      "download_url": "https://www.jangsu.go.kr/town/board/download.jangsu?boardId=BBS_0000025&dataSid=574249&fileSid=372769&command=update",
+      "redistribution": "not_included"
+    },
+    {
+      "id": "savings-2025",
+      "title": "2025 전북청년 함께 두배적금",
+      "file": "savings-2025.hwp",
+      "page_url": "https://www.jangsu.go.kr/town/board/view.jangsu?boardId=BBS_0000025&dataSid=548588",
+      "download_url": "https://www.jangsu.go.kr/town/board/download.jangsu?boardId=BBS_0000025&dataSid=548588&fileSid=364659&command=update",
+      "redistribution": "not_included"
+    },
+    {
+      "id": "savings-2026",
+      "title": "2026 전북청년 함께 두배적금",
+      "file": "savings-2026.hwp",
+      "page_url": "https://www.jangsu.go.kr/town/board/view.jangsu?boardId=BBS_0000025&dataSid=572439",
+      "download_url": "https://www.jangsu.go.kr/town/board/download.jangsu?boardId=BBS_0000025&dataSid=572439&fileSid=371224&command=update",
+      "redistribution": "not_included"
+    },
+    {
+      "id": "housing-2025",
+      "title": "2025 청년·신혼부부 주거비",
+      "file": "housing-2025.hwp",
+      "page_url": "https://www.jangsu.go.kr/town/board/view.jangsu?boardId=BBS_0000025&dataSid=566534",
+      "download_url": "https://www.jangsu.go.kr/town/board/download.jangsu?boardId=BBS_0000025&dataSid=566534&fileSid=366004&command=update",
+      "redistribution": "not_included"
+    },
+    {
+      "id": "housing-2026",
+      "title": "2026 청년·신혼부부 주거비",
+      "file": "housing-2026.hwp",
+      "page_url": "https://www.jangsu.go.kr/town/board/view.jangsu?boardId=BBS_0000025&dataSid=572683",
+      "download_url": "https://www.jangsu.go.kr/town/board/download.jangsu?boardId=BBS_0000025&dataSid=572683&fileSid=371444&command=update",
+      "redistribution": "not_included"
+    },
+    {
+      "id": "allowance-2025",
+      "title": "2025 전북형 청년활력수당",
+      "file": "allowance-2025.hwp",
+      "page_url": "https://www.jangsu.go.kr/town/board/view.jangsu?boardId=BBS_0000025&dataSid=548101",
+      "download_url": "https://www.jangsu.go.kr/town/board/download.jangsu?boardId=BBS_0000025&dataSid=548101&fileSid=364215&command=update",
+      "redistribution": "not_included"
+    },
+    {
+      "id": "allowance-2026",
+      "title": "2026 전북 청년수당(활력수당·지역정착) 통합 공고",
+      "file": "allowance-2026.hwp",
+      "page_url": "https://www.jangsu.go.kr/town/board/view.jangsu?boardId=BBS_0000025&dataSid=572496",
+      "download_url": "https://www.jangsu.go.kr/town/board/download.jangsu?boardId=BBS_0000025&dataSid=572496&fileSid=371281&command=update",
+      "redistribution": "not_included"
+    },
+    {
+      "id": "settlement-2025",
+      "title": "2025 전북청년 지역정착 추가모집",
+      "file": "settlement-2025.hwp",
+      "page_url": "https://www.jangsu.go.kr/town/board/view.jangsu?boardId=BBS_0000025&dataSid=548201",
+      "download_url": "https://www.jangsu.go.kr/town/board/download.jangsu?boardId=BBS_0000025&dataSid=548201&fileSid=364321&command=update",
+      "redistribution": "not_included"
+    },
+    {
+      "id": "settlement-2026",
+      "title": "2026 전북청년 지역정착 추가모집",
+      "file": "settlement-2026.hwp",
+      "page_url": "https://www.jangsu.go.kr/town/board/view.jangsu?boardId=BBS_0000025&dataSid=573111",
+      "download_url": "https://www.jangsu.go.kr/town/board/download.jangsu?boardId=BBS_0000025&dataSid=573111&fileSid=371771&command=update",
+      "redistribution": "not_included"
+    }
+  ],
+  "pairs": [
+    {
+      "id": "club",
+      "before": "club-2025",
+      "after": "club-2026",
+      "split": "development",
+      "note": "연도별 모집공고 비교"
+    },
+    {
+      "id": "savings",
+      "before": "savings-2025",
+      "after": "savings-2026",
+      "split": "development",
+      "note": "연도별 모집공고 비교"
+    },
+    {
+      "id": "housing",
+      "before": "housing-2025",
+      "after": "housing-2026",
+      "split": "development",
+      "note": "연도별 모집공고 비교"
+    },
+    {
+      "id": "allowance",
+      "before": "allowance-2025",
+      "after": "allowance-2026",
+      "split": "held_out",
+      "note": "2026년 통합공고의 공통/활력수당 부분을 비교"
+    },
+    {
+      "id": "settlement",
+      "before": "settlement-2025",
+      "after": "settlement-2026",
+      "split": "held_out",
+      "note": "양년 추가모집 비교"
+    }
+  ]
+}

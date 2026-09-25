@@ -1,0 +1,4 @@
+[
+  { "tool": "extract_requirements", "arguments": { "path": "notice.hwpx" } },
+  { "tool": "compare_notices", "arguments": { "before_path": "before.txt", "after_path": "after.txt" } }
+]

@@ -1,0 +1,42 @@
+{
+  "club-2025": {
+    "sha256": "df7b10870875339709d08a79ff006de15cfcec6862a9d1874a16e200ab4635f0",
+    "bytes": 91648
+  },
+  "club-2026": {
+    "sha256": "23f8fad37c5e74ae7c42a090e8591f2bb6922b48d3afd997cca8e12b747cd8ac",
+    "bytes": 100212
+  },
+  "savings-2025": {
+    "sha256": "6530d738bbd473c39125dce408cb763c0b148f2a1bb1a751011fec50debd6ec4",
+    "bytes": 113664
+  },
+  "savings-2026": {
+    "sha256": "efaa76893e7b16f0a6c5d569715ada4ee7001efce9b46d36916732d896b6d871",
+    "bytes": 103936
+  },
+  "housing-2025": {
+    "sha256": "fdfb14841f1e3b0726e414c4770159ef62c8d7bca5255b2df7b67c6f51b6176f",
+    "bytes": 84992
+  },
+  "housing-2026": {
+    "sha256": "ccdf31d8a5ef7a490817d719fbf7a862f79a2e0fef77bb18a69d8fd8fc301028",
+    "bytes": 92672
+  },
+  "allowance-2025": {
+    "sha256": "25cce59bd3b360937092c5a9a32f672f36837c6fc0fe63f8dc1c9e09f1a1b30b",
+    "bytes": 93184
+  },
+  "allowance-2026": {
+    "sha256": "f28ec52308b931c7fc42cddc7e2793e985db97f7a04e225fbf09a42e2511f61f",
+    "bytes": 102912
+  },
+  "settlement-2025": {
+    "sha256": "27eb87a1d6b84bb6e9d58ee2c37c549dee2bec9536e1ba8e83bf8a8f8bcc2c1a",
+    "bytes": 97792
+  },
+  "settlement-2026": {
+    "sha256": "94d7c99771a02ff62154ecdea0d72d92f98e20804736a038cf2ca73ab354d04f",
+    "bytes": 91136
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "pair": "club",
+  "annotator": "ai-draft-blind",
+  "notes": "1) 2025 제출서류(scan62)는 사업자등록증(고유번호증)을 (필수) 목록에 포함했지만, 같은 공고 scan67은 '최종 선발된 동아리는 보조금 교부 전까지 고유번호증 혹은 사업자등록증 발급 필요'라고 해 문구가 서로 맞지 않음. 이 키에서는 목록 표기를 따라 required로 봄. 2026(scan84)은 이를 명확히 해 '이미 보유한 단체는 필수 제출, 미보유 단체는 최종 선정 후 교부 전까지 발급받아 제출'로 바뀌었으므로 conditional로 봄. 원문 scan84의 '최정 선정'은 '최종 선정'의 오타로 보임. 2) '보탬e 신청서'는 온라인으로 작성하는 신청서(접수방법: 서류 제출과 보탬e 신청 모두 필요)라서 두 해 모두 required로 넣음. 3) 동아리 소개서 붙임의 'PPT, 동영상, 포트폴리오 등 자유 형식 소개 자료'는 선택 제출이고 서식 안내 문구에만 나와서 목록에서는 뺌. 4) 2025 scan20의 '주민등록 비율에 따라 점수 차등 부여' 문장은 2026 모집개요에서 빠졌지만, 심사표 인원수 구성 배점(10명 20점 ~ 5명 이하 10점)은 그대로라서 실질 변경으로 보지 않음. 5) 붙임 번호 순서 변경(동아리 소개서가 붙임4에서 붙임1로)과 공고번호·공고일은 무시함. 6) 2026 공고일은 '2026. 5. .'로 날짜가 비어 있음. 7) 2025는 .hwp, 2026은 .hwpx에서 파싱했지만 같은 rhwp 엔진을 썼으므로 locator를 비교할 수 있음.",
+  "documents": {
+    "club-2025": {
+      "submission_documents": [
+        { "name": "사업계획서", "kind": "required", "condition": null, "locators": ["rhwp/scan62"], "quote": "(필수)사업계획서" },
+        { "name": "예산 집행 계획서", "kind": "required", "condition": null, "locators": ["rhwp/scan62"], "quote": "예산 집행 계획서" },
+        { "name": "동아리현황", "kind": "required", "condition": null, "locators": ["rhwp/scan62"], "quote": "동아리현황" },
+        { "name": "동아리 소개서", "kind": "required", "condition": null, "locators": ["rhwp/scan62"], "quote": "동아리 소개서" },
+        { "name": "개인정보 수집 및 이용 동의서", "kind": "required", "condition": null, "locators": ["rhwp/scan62"], "quote": "개인정보 수집 및 이용 동의서" },
+        { "name": "사업자등록증(고유번호증)", "kind": "required", "condition": null, "locators": ["rhwp/scan62"], "quote": "사업자등록증(고유번호증) 각 1부." },
+        { "name": "보탬e 신청서", "kind": "required", "condition": null, "locators": ["rhwp/scan58"], "quote": "보탬e 신청서 작성(" }
+      ],
+      "application_period": { "text": "2025. 4. 14.(월) ~ 4. 29.(화) 18:00까지", "locators": ["rhwp/scan54"] },
+      "eligibility": [
+        { "item": "연령", "text": "청년(15세이상 49세 이하)", "locators": ["rhwp/scan19"] },
+        { "item": "거주/활동지", "text": "장수군에서 거주하거나 활동하는 청년", "locators": ["rhwp/scan19"] },
+        { "item": "구성 인원", "text": "5인 이상으로 구성되고 구체적인 활동 계획을 가진 동아리", "locators": ["rhwp/scan19"] },
+        { "item": "주민등록 비율", "text": "장수군에 주민등록을 둔 청년 비율 70% 이상 지원 가능", "locators": ["rhwp/scan21"] },
+        { "item": "선정 제외(단순 친목)", "text": "단순 친목 : 여행 경비, 단순 식비 지원, 목적성 없는 모임", "locators": ["rhwp/scan47"] },
+        { "item": "선정 제외(특정 단체)", "text": "특정 단체 : 종교 활동, 정당 지지 동아리 등", "locators": ["rhwp/scan48"] },
+        { "item": "선정 제외(영리 목적)", "text": "영리 목적 : 학원, 공방 등", "locators": ["rhwp/scan49"] },
+        { "item": "선정 제외(중복 보조금)", "text": "동일(유사)사업으로 현재 보조금을 지원받고 있는 동아리", "locators": ["rhwp/scan50"] }
+      ]
+    },
+    "club-2026": {
+      "submission_documents": [
+        { "name": "사업계획서", "kind": "required", "condition": null, "locators": ["rhwp/scan83"], "quote": "(필수) 사업계획서" },
+        { "name": "예산 집행 계획서", "kind": "required", "condition": null, "locators": ["rhwp/scan83"], "quote": "예산 집행 계획서" },
+        { "name": "동아리현황", "kind": "required", "condition": null, "locators": ["rhwp/scan83"], "quote": "동아리현황" },
+        { "name": "동아리 소개서", "kind": "required", "condition": null, "locators": ["rhwp/scan83"], "quote": "동아리 소개서" },
+        { "name": "개인정보 수집 및 이용 동의서", "kind": "required", "condition": null, "locators": ["rhwp/scan83"], "quote": "개인정보 수집 및 이용 동의서 각 1부." },
+        { "name": "고유번호증 또는 사업자등록증", "kind": "conditional", "condition": "이미 보유한 단체는 신청 때 필수 제출, 미보유 단체는 최종 선정 후 보조금 교부 전까지 발급받아 제출", "locators": ["rhwp/scan84"], "quote": "고유번호증 또는 사업자등록증을 이미 보유한 단체는 필수 제출하며" },
+        { "name": "보탬e 신청서", "kind": "required", "condition": null, "locators": ["rhwp/scan79"], "quote": "보탬e 신청서 작성(" }
+      ],
+      "application_period": { "text": "2026. 5. 28.(목) ~ 6. 11.(목) 18:00까지", "locators": ["rhwp/scan75"] },
+      "eligibility": [
+        { "item": "연령", "text": "청년(만 18세이상 49세 이하)", "locators": ["rhwp/scan15"] },
+        { "item": "거주/활동지", "text": "장수군에서 거주하거나 활동하는 청년", "locators": ["rhwp/scan15"] },
+        { "item": "구성 인원", "text": "5인 이상으로 구성되고 구체적인 활동 계획을 가진 동아리", "locators": ["rhwp/scan15"] },
+        { "item": "주민등록 비율", "text": "장수군에 주민등록을 둔 청년 비율 70% 이상 지원 가능", "locators": ["rhwp/scan16"] },
+        { "item": "선정 제외(단순 친목)", "text": "단순 친목 : 여행 경비, 단순 식비 지원, 목적성 없는 모임", "locators": ["rhwp/scan43"] },
+        { "item": "선정 제외(특정 단체)", "text": "특정 단체 : 종교 활동, 정당 지지 동아리 등", "locators": ["rhwp/scan44"] },
+        { "item": "선정 제외(영리 목적)", "text": "영리 목적 : 학원, 공방 등", "locators": ["rhwp/scan45"] },
+        { "item": "선정 제외(중복 보조금)", "text": "동일(유사)사업으로 현재 보조금을 지원받고 있는 동아리", "locators": ["rhwp/scan46"] }
+      ]
+    }
+  },
+  "changes": [
+    { "id": "c1", "category": "eligibility", "importance": "high", "summary": "신청 연령: 작년 15세 이상 49세 이하 → 올해 만 18세 이상 49세 이하(하한 상향)", "before_locators": ["rhwp/scan19"], "after_locators": ["rhwp/scan15"] },
+    { "id": "c2", "category": "documents", "importance": "high", "summary": "사업자등록증(고유번호증): 작년 신청 시 필수 제출서류 → 올해 보유 단체만 신청 시 필수, 미보유 단체는 최종 선정 후 교부 전까지 발급·제출", "before_locators": ["rhwp/scan62"], "after_locators": ["rhwp/scan83", "rhwp/scan84"] },
+    { "id": "c3", "category": "period", "importance": "high", "summary": "접수기간: 작년 2025. 4. 14.~4. 29. 18:00 → 올해 2026. 5. 28.~6. 11. 18:00", "before_locators": ["rhwp/scan54"], "after_locators": ["rhwp/scan75"] },
+    { "id": "c4", "category": "amount", "importance": "high", "summary": "지원금: 작년 동아리당 200만원 균등(7개) → 올해 심사점수 순위별 차등(1·2위 250만원, 3~5위 200만원, 6·7위 150만원, 합계 1,400만원)", "before_locators": ["rhwp/scan45"], "after_locators": ["rhwp/scan40", "rhwp/scan41", "rhwp/scan55", "rhwp/scan680"] },
+    { "id": "c5", "category": "selection", "importance": "medium", "summary": "동점자 처리 기준: 작년 없음 → 올해 신설(활동계획 적정성 > 활동내용 > 장수군 주민등록 인원 수 > 활동의지 > 집행계획 타당성 순)", "before_locators": [], "after_locators": ["rhwp/scan67", "rhwp/scan68", "rhwp/scan70", "rhwp/scan681"] },
+    { "id": "c6", "category": "selection", "importance": "medium", "summary": "심사기준표: 작년 항목별 간단한 고려사항 → 올해 등급별 판단기준 구체화(예: 활동의지 탁월 = 자체 재원 조달 계획 또는 구체적 참여 의지, 활동내용 탁월 = 지역주민 연계·공개 활동)", "before_locators": ["rhwp/scan557", "rhwp/scan570", "rhwp/scan598"], "after_locators": ["rhwp/scan585", "rhwp/scan604", "rhwp/scan649"] },
+    { "id": "c7", "category": "period", "importance": "medium", "summary": "선정발표: 작년 2025년 5월 중 → 올해 2026년 6월 중", "before_locators": ["rhwp/scan66"], "after_locators": ["rhwp/scan88"] },
+    { "id": "c8", "category": "other", "importance": "low", "summary": "운영기간: 작년 2025. 5.~12. → 올해 2026. 6.~12.(한 달 짧아짐)", "before_locators": ["rhwp/scan70"], "after_locators": ["rhwp/scan91"] },
+    { "id": "c9", "category": "obligation", "importance": "medium", "summary": "정산 의무: 작년 실적보고·정산 철저만 명시 → 올해 '정산 미흡 또는 미정산 시 보조금 반환' 추가", "before_locators": ["rhwp/scan75"], "after_locators": ["rhwp/scan97", "rhwp/scan98"] },
+    { "id": "c10", "category": "obligation", "importance": "medium", "summary": "식비·여비 집행 제한: 작년 규정 없음 → 올해 동아리 자체 정기모임 식사비 지출 불가, 공식 행사·대외활동·워크숍 등 목적이 입증될 때만 편성 가능", "before_locators": [], "after_locators": ["rhwp/scan802"] },
+    { "id": "c11", "category": "obligation", "importance": "low", "summary": "강사비: 작년 내부구성원 강사비 지급 불가만 명시 → 올해 외부 강사 초빙 시 [참고자료] 기준에 따라 집행 가능 명시", "before_locators": ["rhwp/scan51"], "after_locators": ["rhwp/scan47"] },
+    { "id": "c12", "category": "documents", "importance": "low", "summary": "사업계획서 서식: 작년 사업비에 보조금·자부담 기재 → 올해 자부담 칸 삭제(보조금만), 예산 집행 계획서의 보조금 계 2,000 사전기재도 삭제", "before_locators": ["rhwp/scan132", "rhwp/scan216"], "after_locators": ["rhwp/scan192", "rhwp/scan275"] },
+    { "id": "c13", "category": "other", "importance": "low", "summary": "방문 제출처: 작년 '직접 방문 제출'만 기재 → 올해 장수군청 2층 기획조정실(장수읍 호비로 10) 명시", "before_locators": ["rhwp/scan56"], "after_locators": ["rhwp/scan77"] }
+  ]
+}

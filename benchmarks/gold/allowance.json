@@ -1,0 +1,732 @@
+{
+  "pair": "allowance",
+  "annotator": "ai-draft-blind",
+  "notes": "2026 문서 범위 구분: 공통(공모개요) scan4~scan44 (단 총괄표 중 지역정착 행 scan37~scan42는 제외), 활력수당 전용 scan45~scan292, 지역정착 전용 scan293~scan536(제출서류 scan478~scan536 포함, 전부 제외), 참고1 가구소득 산정표 scan539~scan619는 두 사업 공통 참고로 취급(소득기준 변경 근거로만 사용), 참고2·참고3(재직증명서 서식) scan622~scan710은 지역정착 전용으로 제외, 참고4 구비서류 발급방법 scan712~scan767 및 참고5 연락처 scan770~는 참고용이라 제출서류 locator에서 제외. 2025 문서도 '구비서류 발급 방법'(scan473~) 표와 연락처표(scan401~)는 제외. 판단사항: (1) 제출서류 locator는 '6. 제출서류'/'※ 제출서류' 표만 사용했고, 자격요건 본문에서 증빙을 언급하는 줄(2025 scan43·scan50, 2026 scan113·scan120)과 신청절차 ④(scan212/scan141)는 설명 문구로 보고 제외. (2) 고용·산재보험 자격 이력내역서는 '해당자만 제출' 구분선(2025 scan310, 2026 scan266) 앞에 있고 '가입이력이 없어도 반드시 제출'이므로 required. (3) 사업자등록 사실여부 증명서와 건강보험자격득실확인서는 '해당자만 제출' 블록에 있어 conditional. (4) 2026 scan111의 직전 3개월 표기 '‘25.12.~‘25.2.'는 오타로 보이며 제출서류표 scan275('‘25.12.~’26.2.')가 정확한 기간으로 판단. (5) 2026 제출서류 표 2025 대비 사실상 동일하며, 변경점은 동의서 명칭, 초본 주민번호 뒷자리 표기 여부, 득실확인서 대상 기간, 서류보완 3회 불응 반려 신설. (6) 2025 신청절차 ⑤ '주민등록번호 뒷자리 → 시군 담당자 이메일 전송'이 2026에서 삭제되고 대신 초본에 뒷자리 표기로 바뀜(연관 변경으로 별도 기록). (7) 2026 본문에는 점수표·동점자 기준이 빠졌으나 정량평가 3개 항목·배점은 동일하여 low로 처리. (8) 모집인원 장수군 14명 동일.",
+  "documents": {
+    "allowance-2025": {
+      "submission_documents": [
+        {
+          "name": "참여 신청서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan268"
+          ],
+          "quote": "① 참여 신청서"
+        },
+        {
+          "name": "개인정보 수집․이용동의서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan270"
+          ],
+          "quote": "개인정보 수집․이용동의서"
+        },
+        {
+          "name": "행정정보 공동이용 사전동의서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan273"
+          ],
+          "quote": "③ 행정정보 공동이용 사전동의서"
+        },
+        {
+          "name": "상호의무 서약서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan276"
+          ],
+          "quote": "④ 상호의무 서약서"
+        },
+        {
+          "name": "구직활동계획서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan280"
+          ],
+          "quote": "⑤ 구직활동계획서"
+        },
+        {
+          "name": "주민등록초본",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan283"
+          ],
+          "quote": "⑥ 주민등록초본 1부(신청자 본인)"
+        },
+        {
+          "name": "건강보험료 납부확인서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan288"
+          ],
+          "quote": "건강보험료 납부확인서"
+        },
+        {
+          "name": "건강보험 자격확인서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan293"
+          ],
+          "quote": "⑧ 건강보험 자격확인서"
+        },
+        {
+          "name": "최종학력 졸업증명서(중퇴자: 중퇴확인서)",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan297",
+            "rhwp/scan298",
+            "rhwp/scan299"
+          ],
+          "quote": "⑨ 최종학력 졸업증명서"
+        },
+        {
+          "name": "고용․산재보험 자격 이력내역서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan303"
+          ],
+          "quote": "고용․산재보험 자격 이력내역서"
+        },
+        {
+          "name": "근로계약서 사본",
+          "kind": "conditional",
+          "condition": "주30시간 미만 근로의 경우",
+          "locators": [
+            "rhwp/scan312",
+            "rhwp/scan313"
+          ],
+          "quote": "근로계약서 사본"
+        },
+        {
+          "name": "임금(급여) 명세서",
+          "kind": "conditional",
+          "condition": "주30시간 미만 근로의 경우",
+          "locators": [
+            "rhwp/scan317",
+            "rhwp/scan318"
+          ],
+          "quote": "임금(급여) 명세서"
+        },
+        {
+          "name": "사업자등록(고유번호증) 사실여부 증명서",
+          "kind": "conditional",
+          "condition": "해당자만 제출(사업자등록 이력자, 폐업 사실증명서)",
+          "locators": [
+            "rhwp/scan321",
+            "rhwp/scan322"
+          ],
+          "quote": "사실여부 증명서"
+        },
+        {
+          "name": "건강보험자격득실확인서",
+          "kind": "conditional",
+          "condition": "‘24.9월~’25.1월 가구원수 변경자(가입자·세대원 모두)",
+          "locators": [
+            "rhwp/scan325"
+          ],
+          "quote": "건강보험자격득실확인서"
+        }
+      ],
+      "application_period": {
+        "text": "'25. 2. 3.(월) ~ 2. 28.(금) 17:00",
+        "locators": [
+          "rhwp/scan18"
+        ]
+      },
+      "eligibility": [
+        {
+          "item": "연령",
+          "text": "18세 이상 ~ 39세 이하(1985.1.1.~2006.12.31.)",
+          "locators": [
+            "rhwp/scan36"
+          ]
+        },
+        {
+          "item": "거주지",
+          "text": "주민등록상 주소지가 전북특별자치도인 자",
+          "locators": [
+            "rhwp/scan39"
+          ]
+        },
+        {
+          "item": "미취업",
+          "text": "미취업(미창업)인 자",
+          "locators": [
+            "rhwp/scan40"
+          ]
+        },
+        {
+          "item": "단시간근로자 급여기준",
+          "text": "평균 급여(세전) 1,307,410원 이하인 자",
+          "locators": [
+            "rhwp/scan41"
+          ]
+        },
+        {
+          "item": "사업자등록",
+          "text": "사업자등록(고유번호증)이 되어 있지 않은 자",
+          "locators": [
+            "rhwp/scan45"
+          ]
+        },
+        {
+          "item": "소득",
+          "text": "가구기준 중위소득 150% 이하인 자 (심사기준 : 2024년)",
+          "locators": [
+            "rhwp/scan48"
+          ]
+        },
+        {
+          "item": "학력",
+          "text": "미취업자 중 최종학력 졸업·중퇴·수료자",
+          "locators": [
+            "rhwp/scan16"
+          ]
+        },
+        {
+          "item": "재학·휴학생 제외",
+          "text": "고등학교, 대학(원) 재학생 및 휴학생 신청 불가",
+          "locators": [
+            "rhwp/scan17"
+          ]
+        },
+        {
+          "item": "국적",
+          "text": "대한민국 국적을 보유하지 않는 외국인",
+          "locators": [
+            "rhwp/scan220"
+          ]
+        },
+        {
+          "item": "중복참여 제외",
+          "text": "전북청년 지역정착 지원사업 및 전북청년 함께 두배적금 참여 중인 경우",
+          "locators": [
+            "rhwp/scan240"
+          ]
+        },
+        {
+          "item": "생계급여 수급자 제외",
+          "text": "기초생활보장제도 생계급여 수급자의 경우 제외 대상",
+          "locators": [
+            "rhwp/scan248"
+          ]
+        },
+        {
+          "item": "기수혜자 제외",
+          "text": "전북형 청년활력수당 기 수혜자 및 수혜기간 중 중단자",
+          "locators": [
+            "rhwp/scan254"
+          ]
+        }
+      ]
+    },
+    "allowance-2026": {
+      "submission_documents": [
+        {
+          "name": "참여 신청서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan224"
+          ],
+          "quote": "① 참여 신청서"
+        },
+        {
+          "name": "개인정보 수집·이용·제공 및 고유식별정보 처리에 관한 동의서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan226"
+          ],
+          "quote": "개인정보 수집·이용·제공 및 고유식별정보 처리에 관한 동의서"
+        },
+        {
+          "name": "행정정보 공동이용 사전동의서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan229"
+          ],
+          "quote": "③ 행정정보 공동이용 사전동의서"
+        },
+        {
+          "name": "상호의무 서약서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan232"
+          ],
+          "quote": "④ 상호의무 서약서"
+        },
+        {
+          "name": "구직활동계획서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan236"
+          ],
+          "quote": "⑤ 구직활동계획서"
+        },
+        {
+          "name": "주민등록초본",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan239"
+          ],
+          "quote": "⑥ 주민등록초본 1부(신청자 본인)"
+        },
+        {
+          "name": "건강보험료 납부확인서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan244"
+          ],
+          "quote": "건강보험료 납부확인서"
+        },
+        {
+          "name": "건강보험 자격확인서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan249"
+          ],
+          "quote": "⑧ 건강보험 자격확인서"
+        },
+        {
+          "name": "최종학력 졸업증명서(중퇴자: 중퇴확인서)",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan253",
+            "rhwp/scan254",
+            "rhwp/scan255"
+          ],
+          "quote": "⑨ 최종학력 졸업증명서"
+        },
+        {
+          "name": "고용․산재보험 자격 이력내역서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan259"
+          ],
+          "quote": "고용․산재보험 자격 이력내역서"
+        },
+        {
+          "name": "근로계약서 사본",
+          "kind": "conditional",
+          "condition": "주30시간 미만 근로의 경우",
+          "locators": [
+            "rhwp/scan268",
+            "rhwp/scan269"
+          ],
+          "quote": "근로계약서 사본"
+        },
+        {
+          "name": "임금(급여) 명세서",
+          "kind": "conditional",
+          "condition": "주30시간 미만 근로의 경우",
+          "locators": [
+            "rhwp/scan273",
+            "rhwp/scan274"
+          ],
+          "quote": "임금(급여) 명세서"
+        },
+        {
+          "name": "사업자등록(고유번호증) 사실여부 증명서",
+          "kind": "conditional",
+          "condition": "해당자만 제출(사업자등록 이력자, 폐업 사실증명서)",
+          "locators": [
+            "rhwp/scan277",
+            "rhwp/scan278"
+          ],
+          "quote": "사실여부 증명서"
+        },
+        {
+          "name": "건강보험자격득실확인서",
+          "kind": "conditional",
+          "condition": "‘25.10월~’25.12월 가구원수 변경자(가입자·세대원 모두)",
+          "locators": [
+            "rhwp/scan281"
+          ],
+          "quote": "건강보험자격득실확인서"
+        }
+      ],
+      "application_period": {
+        "text": "'26. 3. 6.(금) ~ 3. 20.(금) 17:00",
+        "locators": [
+          "rhwp/scan19"
+        ]
+      },
+      "eligibility": [
+        {
+          "item": "연령",
+          "text": "18세 이상 ~ 39세 이하(1986.1.1.~2007.12.31.)",
+          "locators": [
+            "rhwp/scan106"
+          ]
+        },
+        {
+          "item": "거주지",
+          "text": "주민등록상 주소지가 전북특별자치도인 자",
+          "locators": [
+            "rhwp/scan109"
+          ]
+        },
+        {
+          "item": "미취업",
+          "text": "미취업(미창업)인 자",
+          "locators": [
+            "rhwp/scan110"
+          ]
+        },
+        {
+          "item": "단시간근로자 급여기준",
+          "text": "평균 급여(세전) 1,345,210원 이하인 자",
+          "locators": [
+            "rhwp/scan111"
+          ]
+        },
+        {
+          "item": "사업자등록",
+          "text": "사업자등록(고유번호증)이 되어 있지 않은 자",
+          "locators": [
+            "rhwp/scan115"
+          ]
+        },
+        {
+          "item": "소득",
+          "text": "가구기준 중위소득 150% 이하인 자 (심사기준 : 2025년)",
+          "locators": [
+            "rhwp/scan118"
+          ]
+        },
+        {
+          "item": "학력",
+          "text": "미취업자 중 최종학력 졸업·중퇴·수료자",
+          "locators": [
+            "rhwp/scan49"
+          ]
+        },
+        {
+          "item": "재학·휴학생 제외",
+          "text": "고등학교, 대학(원) 재학생 및 휴학생 신청 불가",
+          "locators": [
+            "rhwp/scan50"
+          ]
+        },
+        {
+          "item": "국적",
+          "text": "대한민국 국적을 보유하지 않는 외국인",
+          "locators": [
+            "rhwp/scan182"
+          ]
+        },
+        {
+          "item": "중복참여 제외",
+          "text": "전북청년 지역정착 지원사업 및 전북청년 함께 두배적금 참여 중인 경우",
+          "locators": [
+            "rhwp/scan202"
+          ]
+        },
+        {
+          "item": "생계급여 수급자 제외",
+          "text": "기초생활보장제도 생계급여 수급자의 경우 제외 대상",
+          "locators": [
+            "rhwp/scan210"
+          ]
+        },
+        {
+          "item": "기수혜자 제외",
+          "text": "전북형 청년활력수당 기 수혜자 및 수혜기간 중 중단자",
+          "locators": [
+            "rhwp/scan214"
+          ]
+        }
+      ]
+    }
+  },
+  "changes": [
+    {
+      "id": "c1",
+      "category": "period",
+      "importance": "high",
+      "summary": "모집기간: 작년 '25.2.3.~2.28. 17:00(약 4주) → 올해 '26.3.6.~3.20. 17:00(2주로 단축)",
+      "before_locators": [
+        "rhwp/scan18"
+      ],
+      "after_locators": [
+        "rhwp/scan19"
+      ]
+    },
+    {
+      "id": "c2",
+      "category": "eligibility",
+      "importance": "high",
+      "summary": "단시간근로자 급여 상한: 작년 직전 3개월('24.11.~'25.1.) 평균 1,307,410원 이하 → 올해 직전 3개월('25.12.~'26.2.) 평균 1,345,210원 이하 (제외대상·직접일자리 예외 기준도 동일하게 상향)",
+      "before_locators": [
+        "rhwp/scan41",
+        "rhwp/scan228",
+        "rhwp/scan244"
+      ],
+      "after_locators": [
+        "rhwp/scan111",
+        "rhwp/scan190",
+        "rhwp/scan206"
+      ]
+    },
+    {
+      "id": "c3",
+      "category": "eligibility",
+      "importance": "medium",
+      "summary": "소득기준: 작년 2024년 기준중위소득 150%·'24.10~12월 건보료 → 올해 2025년 기준중위소득 150%·'25.10~12월 건보료(1인 소득기준 3,343,000 → 3,589,000원 등 기준금액 상향)",
+      "before_locators": [
+        "rhwp/scan48",
+        "rhwp/scan49",
+        "rhwp/scan63"
+      ],
+      "after_locators": [
+        "rhwp/scan118",
+        "rhwp/scan119",
+        "rhwp/scan551"
+      ]
+    },
+    {
+      "id": "c4",
+      "category": "eligibility",
+      "importance": "low",
+      "summary": "연령 기준: 작년 2024.12.31. 기준 1985.1.1.~2006.12.31.생 → 올해 2025.12.31. 기준 1986.1.1.~2007.12.31.생 (18~39세 동일, 연도만 이동)",
+      "before_locators": [
+        "rhwp/scan36",
+        "rhwp/scan37"
+      ],
+      "after_locators": [
+        "rhwp/scan106",
+        "rhwp/scan107"
+      ]
+    },
+    {
+      "id": "c5",
+      "category": "eligibility",
+      "importance": "low",
+      "summary": "거주·미취업 판단 기준일: 작년 공고일 '25.2.3. → 올해 공고일 '26.3.5.",
+      "before_locators": [
+        "rhwp/scan39",
+        "rhwp/scan40"
+      ],
+      "after_locators": [
+        "rhwp/scan109",
+        "rhwp/scan110"
+      ]
+    },
+    {
+      "id": "c6",
+      "category": "documents",
+      "importance": "high",
+      "summary": "주민등록초본: 작년 주민등록번호 뒷자리 미표기 → 올해 뒷자리 표기로 발급",
+      "before_locators": [
+        "rhwp/scan285"
+      ],
+      "after_locators": [
+        "rhwp/scan241"
+      ]
+    },
+    {
+      "id": "c7",
+      "category": "documents",
+      "importance": "medium",
+      "summary": "신청절차: 작년 ⑤ 주민등록번호 뒷자리를 시군 담당자 이메일로 전송 → 올해 해당 절차 삭제",
+      "before_locators": [
+        "rhwp/scan214"
+      ],
+      "after_locators": []
+    },
+    {
+      "id": "c8",
+      "category": "documents",
+      "importance": "medium",
+      "summary": "동의서 명칭: 작년 '개인정보 수집․이용동의서' → 올해 '개인정보 수집·이용·제공 및 고유식별정보 처리에 관한 동의서'",
+      "before_locators": [
+        "rhwp/scan270"
+      ],
+      "after_locators": [
+        "rhwp/scan226"
+      ]
+    },
+    {
+      "id": "c9",
+      "category": "documents",
+      "importance": "medium",
+      "summary": "건강보험자격득실확인서 제출 대상: 작년 '24.9월~'25.1월 가구원수 변경자 → 올해 '25.10월~'25.12월 가구원수 변경자",
+      "before_locators": [
+        "rhwp/scan326"
+      ],
+      "after_locators": [
+        "rhwp/scan282"
+      ]
+    },
+    {
+      "id": "c10",
+      "category": "documents",
+      "importance": "low",
+      "summary": "서류 유효 발급일: 작년 공고일('25.2.3.) 이후 발급분 → 올해 공고일('26.3.5.) 이후 발급분; 건보료 납부확인서·임금명세서 대상기간도 1년씩 이동",
+      "before_locators": [
+        "rhwp/scan260",
+        "rhwp/scan292",
+        "rhwp/scan319"
+      ],
+      "after_locators": [
+        "rhwp/scan286",
+        "rhwp/scan248",
+        "rhwp/scan275"
+      ]
+    },
+    {
+      "id": "c11",
+      "category": "documents",
+      "importance": "medium",
+      "summary": "신설: 공모 신청 서류보완 요청에 3회 이상 불응 시 반려 처분",
+      "before_locators": [],
+      "after_locators": [
+        "rhwp/scan292"
+      ]
+    },
+    {
+      "id": "c12",
+      "category": "amount",
+      "importance": "high",
+      "summary": "지급방식: 작년 '전북청년 함께 도전 카드' 포인트 차감방식(50만원) → 올해 매월 25만 포인트 + 25만원권 지역사랑상품권 분할 지급(도전카드+시군 지역사랑상품권 카드 발급)",
+      "before_locators": [
+        "rhwp/scan27"
+      ],
+      "after_locators": [
+        "rhwp/scan95",
+        "rhwp/scan98",
+        "rhwp/scan99"
+      ]
+    },
+    {
+      "id": "c13",
+      "category": "obligation",
+      "importance": "high",
+      "summary": "신설: 사업 신청·선정 후 주소지를 타 시도 또는 도내 타 시군으로 변경하면 지원 중단",
+      "before_locators": [],
+      "after_locators": [
+        "rhwp/scan18",
+        "rhwp/scan166"
+      ]
+    },
+    {
+      "id": "c14",
+      "category": "obligation",
+      "importance": "medium",
+      "summary": "교육 의무: 작년 필수교육 1회 참여 의무(2주 이내) → 올해 필수교육·사전교육·구직역량강화교육 미이수 시 선정 취소 명시",
+      "before_locators": [
+        "rhwp/scan24",
+        "rhwp/scan345"
+      ],
+      "after_locators": [
+        "rhwp/scan89",
+        "rhwp/scan157"
+      ]
+    },
+    {
+      "id": "c15",
+      "category": "amount",
+      "importance": "medium",
+      "summary": "신설: 취·창업성공금(50만원)은 '26.12월까지만 신청 가능",
+      "before_locators": [
+        "rhwp/scan25"
+      ],
+      "after_locators": [
+        "rhwp/scan90",
+        "rhwp/scan92"
+      ]
+    },
+    {
+      "id": "c16",
+      "category": "amount",
+      "importance": "low",
+      "summary": "지급시기: 작년 1차 4.21.(사전·필수교육 이수자), 2~6차 매월 1일 → 올해 매월 초 포인트 지급",
+      "before_locators": [
+        "rhwp/scan338"
+      ],
+      "after_locators": [
+        "rhwp/scan96"
+      ]
+    },
+    {
+      "id": "c17",
+      "category": "selection",
+      "importance": "low",
+      "summary": "선정발표·사전교육: 작년 발표 2025.3.31., 사전교육 4.1.~4.4. → 올해 발표 2026.4.27., 사전교육 4.28.~4.30.(예정)",
+      "before_locators": [
+        "rhwp/scan333",
+        "rhwp/scan337"
+      ],
+      "after_locators": [
+        "rhwp/scan145",
+        "rhwp/scan149"
+      ]
+    },
+    {
+      "id": "c18",
+      "category": "selection",
+      "importance": "low",
+      "summary": "선정방법 표기: 정량평가 3개 항목(중위소득40·미취업기간40·거주기간20) 동일하나 올해 공고에서 세부 점수표·동점자 기준 삭제, '시군별 심사평가' 문구 추가",
+      "before_locators": [
+        "rhwp/scan141",
+        "rhwp/scan204"
+      ],
+      "after_locators": [
+        "rhwp/scan133",
+        "rhwp/scan134"
+      ]
+    },
+    {
+      "id": "c19",
+      "category": "other",
+      "importance": "low",
+      "summary": "공고 형식: 작년 활력수당 단독 공고 → 올해 활력수당·지역정착 통합 '전북 청년수당' 공고(활력수당 도 전체 2,000명 명시, 장수군 14명 동일)",
+      "before_locators": [
+        "rhwp/scan6",
+        "rhwp/scan20"
+      ],
+      "after_locators": [
+        "rhwp/scan6",
+        "rhwp/scan44",
+        "rhwp/scan33",
+        "rhwp/scan51"
+      ]
+    }
+  ],
+  "out_of_scope": {
+    "allowance-2026": [
+      [
+        37,
+        42
+      ],
+      [
+        293,
+        536
+      ],
+      [
+        622,
+        710
+      ]
+    ]
+  },
+  "out_of_scope_note": "2026 통합공고 중 지역정착 전용 범위. 주석자 notes 기준. 이 범위의 추출 결과는 오탐으로 세지 않음."
+}

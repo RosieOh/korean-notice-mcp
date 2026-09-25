@@ -1,3 +1,5 @@
+// Downloads the benchmark notices listed in benchmarks/sources.json into data/raw/ and checks their SHA-256.
+// Usage: node scripts/fetch-corpus.js [--only id1,id2]
 import { readFile,writeFile,mkdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 const base=new URL('../',import.meta.url);
@@ -5,12 +7,16 @@ const manifest=JSON.parse(await readFile(new URL('benchmarks/sources.json',base)
 const directory=new URL('data/raw/',base);
 await mkdir(directory,{recursive:true});
 let locked={};try{locked=JSON.parse(await readFile(new URL('benchmarks/checksums.json',base),'utf8'));}catch(e){if(e.code!=='ENOENT')throw e;}
-const results={};
+const only=process.argv.includes('--only')?new Set(process.argv[process.argv.indexOf('--only')+1].split(',')):null;
+const results={...locked};
 for(const source of manifest.documents){
+  if(only&&!only.has(source.id))continue;
   const url=new URL(source.download_url);
-  if(url.protocol!=='https:'||url.hostname!=='www.jangsu.go.kr'||!/^[a-z0-9-]+\.(hwp|hwpx)$/.test(source.file))throw new Error('Source outside fixed corpus');
-  const response=await fetch(url,{redirect:'error',signal:AbortSignal.timeout(20000)});
+  // Only official government hosts, and only plain HWP/HWPX file names.
+  if(url.protocol!=='https:'||!/(^|\.)go\.kr$/.test(url.hostname)||!/^[a-z0-9-]+\.(hwp|hwpx)$/.test(source.file))throw new Error(`${source.id}: source outside allowed corpus`);
+  const response=await fetch(url,{redirect:'follow',signal:AbortSignal.timeout(20000),headers:source.referer?{Referer:source.referer}:{}});
   if(!response.ok)throw new Error(`${source.id}: HTTP ${response.status}`);
+  if(!/(^|\.)go\.kr$/.test(new URL(response.url).hostname))throw new Error(`${source.id}: redirected outside go.kr`);
   const chunks=[];let size=0;
   for await(const chunk of response.body){size+=chunk.length;if(size>2*1024*1024)throw new Error('Download exceeds 2MB');chunks.push(chunk);}
   const bytes=Buffer.concat(chunks);

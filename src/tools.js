@@ -10,6 +10,8 @@ const NUMBERED = /^(?:\d{1,2}[.)](?!\d)|[가-하][.)]|[①-⑳])\s*/;
 const MAIN_ENUM = /^(?:[①-⑳]|\d{1,2}[.)](?!\d))\s*/;
 const SUB_ENUM = /^[㉠-㉻ⓐ-ⓩ]\s*/;
 const TOPICS = [
+  // Guides such as "[참고] 구비서류 발급 방법" describe documents but are not the submission list.
+  ['reference', /발급\s*(?:방법|안내|요령)|작성\s*(?:방법|요령|예시)|^[\[(]?\s*참고\s*[\])]?/],
   ['documents', /^(?:(?:제출|구비|신청|필요|증빙)\s*서류|제출\s*방식)/],
   ['period', /^(?:(?:접수|신청|모집)\s*(?:및\s*공고\s*)?(?:기간|일정)|마감|접수\s*마감)/],
   ['eligibility', /^(?:(?:신청|지원|참가|모집)\s*(?:대상|자격)|자격\s*요건)/]
@@ -25,7 +27,9 @@ const DATE = /\d{4}\s*[.-]\s*\d{1,2}|\d{1,2}\s*\.\s*\d{1,2}\s*\./;
 const squash = s => s.replace(/\([^)]*\)/g, '').replace(/[\s·ㆍ‧]/g, '');
 // Drop trailing parenthetical remarks, including one level of nesting.
 const stripTail = s => { let t = s.trim(); for (let u; (u = t.replace(/\s*\((?:[^()]|\([^()]*\))*\)$/, '')) !== t;) t = u; return t; };
-const isDocName = s => { const t = stripTail(s); return t.length >= 2 && DOC_NOUN.test(t) && !SENTENCE.test(t); };
+// A bare generic noun ("서류", "자료") is a heading fragment, not a document name.
+const GENERIC = /^(?:제출|구비|첨부|증빙|관련)?\s*(?:서류|자료|증빙)$/;
+const isDocName = s => { const t = stripTail(s); return t.length >= 2 && DOC_NOUN.test(t) && !SENTENCE.test(t) && !GENERIC.test(t); };
 const clean = s => s.replace(BULLET, '').replace(SUB_ENUM, '').replace(MAIN_ENUM, '').replace(/\s*(?:각\s*)?\d+\s*부\.?$/, '').replace(/[.。]$/, '').trim();
 
 // A heading is a short label (optionally bulleted, numbered or in parentheses) with a known topic.
@@ -94,7 +98,8 @@ export function extract(doc) {
     const line = block.text, entry = cells.get(block.locator), inTable = Boolean(entry);
     // Enumerated table cells are list items (e.g. "① 참가자격 확인" is a form), never section headings.
     const h = inTable && (MAIN_ENUM.test(line) || SUB_ENUM.test(line)) ? null : heading(line);
-    if (h && h.topic !== 'other') { mode = h.topic; modeLevel = inTable ? 2 : level(line.replace(BULLET, l => l.includes('□') ? '□' : '')); group = null; }
+    // Inside a reference guide, its table header cells ("구비서류 | 발급방법") must not reopen the documents section.
+    if (h && h.topic !== 'other' && !(mode === 'reference' && inTable)) { mode = h.topic; modeLevel = inTable ? 2 : level(line.replace(BULLET, l => l.includes('□') ? '□' : '')); group = null; }
     else if (!inTable && mode && (boundary(line) && level(line) <= modeLevel || h?.rest && h.label.length <= 10 && !/^(?:해당\s*시|해당자|필수|선택|조건부)$/.test(h.label))) { mode = null; group = null; }
     if (/^[【\[]?\s*붙임|별첨/.test(line)) warnings.push(`첨부 원문을 별도로 확인하세요: ${block.locator}`);
     if (pendingPeriod && DATE.test(line)) { deadlines.push({ raw: line, evidence: { ...evidence(doc, block), locators: [block.locator] }, review_status: 'needs_review' }); pendingPeriod = null; continue; }

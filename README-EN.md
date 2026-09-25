@@ -94,6 +94,9 @@ What this project adds on top of those:
 
 The most useful contributions are notice pairs from other governments and gold labels for them, especially labels a human has reviewed. Please don't attach real application documents that contain personal data (see [SECURITY.md](SECURITY.md)).
 
-## License
+## License and notices
 
-MIT. HWP parsing by [@rhwp/core](https://www.npmjs.com/package/@rhwp/core) (MIT, Edward Kim).
+- **Code**: MIT. HWP parsing by [@rhwp/core](https://www.npmjs.com/package/@rhwp/core) (MIT, Edward Kim).
+- **Quoted notice text is not MIT-licensed.** The gold labels and results in `benchmarks/`, and the demo image, quote short excerpts from public notices published by Jangsu County, for research and evaluation. Rights to those excerpts stay with the original author. The source posts carry [KOGL Type 4](https://www.kogl.or.kr/info/license.do): attribution required, no commercial use, no modification. Sources are listed in [benchmarks/sources.json](benchmarks/sources.json). The original notice files are not included in this repository or the npm package.
+- **Trademarks**: "한글" (Hangul), "한컴" (Hancom), "HWP" and "HWPX" are registered trademarks of Hancom Inc. This is an independent open-source project with no affiliation with, sponsorship by, or endorsement from Hancom Inc.
+- **No warranty on results**: Outputs are candidates for human review. They do not determine eligibility or submission obligations, and users are responsible for any decision based on them.

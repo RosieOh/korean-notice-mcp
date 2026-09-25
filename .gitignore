@@ -5,3 +5,5 @@ coverage/
 .env
 .npm-cache/
 .npmrc
+docs/demo-compare.mp4
+docs/demo-compare.png

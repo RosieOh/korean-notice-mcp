@@ -9,11 +9,13 @@ const BULLET = /^[\s○◦□■▸▶►·•\-*◎◇◆→•-]+/;
 const NUMBERED = /^(?:\d{1,2}[.)](?!\d)|[가-하][.)]|[①-⑳])\s*/;
 const MAIN_ENUM = /^(?:[①-⑳]|\d{1,2}[.)](?!\d))\s*/;
 const SUB_ENUM = /^[㉠-㉻ⓐ-ⓩ]\s*/;
+// List bullets, including Hangul private-use glyphs; "□" is a section marker, not a list bullet.
+const LIST_BULLET = /^[○◦▪•·-]/;
 const TOPICS = [
   // Guides such as "[참고] 구비서류 발급 방법" describe documents but are not the submission list.
   ['reference', /발급\s*(?:방법|안내|요령)|작성\s*(?:방법|요령|예시)|^[\[(]?\s*참고\s*[\])]?/],
   ['documents', /^(?:(?:제출|구비|신청|필요|증빙)\s*서류|제출\s*방식)/],
-  ['period', /^(?:(?:접수|신청|모집)\s*(?:및\s*공고\s*)?(?:기간|일정)|마감|접수\s*마감)/],
+  ['period', /^(?:(?:접수|신청|모집)\s*(?:및\s*공고\s*)?(?:기간|일정|일시)|신청\s*접수$|마감|접수\s*마감)/],
   ['eligibility', /^(?:(?:신청|지원|참가|모집)\s*(?:대상|자격)|자격\s*요건)/]
 ];
 const DOC_NOUN = /(?:신청서|동의서|서약서|계획서|소개서|현황|확인서|증명서?|증명원|사본|내역서?|초본|등본|명세서|계약서|자료|통장|등록증|수급자격증|승낙서|서류|증빙|[가-힣)]서)(?:\s*\([^)]*\))?$/;
@@ -35,7 +37,9 @@ const clean = s => s.replace(BULLET, '').replace(SUB_ENUM, '').replace(MAIN_ENUM
 // A heading is a short label (optionally bulleted, numbered or in parentheses) with a known topic.
 export function heading(line) {
   const text = line.replace(BULLET, '').replace(/^※\s*/, '').replace(NUMBERED, '');
-  const m = /^\(\s*([^)]{1,20})\s*\)\s*(.*)$/.exec(text) || /^([^:：]{1,20}?)\s*[:：]\s*(.*)$/.exec(text) || /^(.{1,20})$/.exec(text.trim());
+  // "신청서류 (공고일 이후 발급된 서류에 한함)": a short label followed only by a parenthetical remark.
+  const remark = /^([^():：]{1,20}?)\s*(\([^()]*\))$/.exec(text.trim());
+  const m = /^\(\s*([^)]{1,20})\s*\)\s*(.*)$/.exec(text) || /^([^:：]{1,20}?)\s*[:：]\s*(.*)$/.exec(text) || remark || /^(.{1,20})$/.exec(text.trim());
   if (!m) return null;
   const label = m[1].trim().replace(/^.*?및\s*(?=제출\s*서류)/, '');
   const topic = TOPICS.find(([, re]) => re.test(label))?.[0];
@@ -76,7 +80,7 @@ function columnHeader(entry) {
 export function extract(doc) {
   const requirements = [], deadlines = [], eligibility = [], warnings = [...doc.warnings];
   const cells = cellIndex(doc);
-  let mode = null, modeLevel = 0, group = null, pendingPeriod = null;
+  let mode = null, modeLevel = 0, group = null, pendingPeriod = null, openBullet = null;
   const add = (block, name, kind, condition) => {
     const key = squash(name);
     const existing = requirements.find(r => squash(r.name) === key);
@@ -99,8 +103,10 @@ export function extract(doc) {
     // Enumerated table cells are list items (e.g. "① 참가자격 확인" is a form), never section headings.
     const h = inTable && (MAIN_ENUM.test(line) || SUB_ENUM.test(line)) ? null : heading(line);
     // Inside a reference guide, its table header cells ("구비서류 | 발급방법") must not reopen the documents section.
-    if (h && h.topic !== 'other' && !(mode === 'reference' && inTable)) { mode = h.topic; modeLevel = inTable ? 2 : level(line.replace(BULLET, l => l.includes('□') ? '□' : '')); group = null; }
-    else if (!inTable && mode && (boundary(line) && level(line) <= modeLevel || h?.rest && h.label.length <= 10 && !/^(?:해당\s*시|해당자|필수|선택|조건부)$/.test(h.label))) { mode = null; group = null; }
+    const bullet = !inTable && LIST_BULLET.test(line) ? line[0] : null;
+    if (h && h.topic !== 'other' && !(mode === 'reference' && inTable)) { mode = h.topic; modeLevel = inTable ? 2 : level(line.replace(BULLET, l => l.includes('□') ? '□' : '')); group = null; openBullet = bullet; }
+    // A heading with the same bullet as the one that opened the section is a sibling section.
+    else if (!inTable && mode && (boundary(line) && level(line) <= modeLevel || h?.rest && h.label.length <= 10 && !/^(?:해당\s*시|해당자|필수|선택|조건부)$/.test(h.label) || h && bullet && bullet === openBullet)) { mode = null; group = null; }
     if (/^[【\[]?\s*붙임|별첨/.test(line)) warnings.push(`첨부 원문을 별도로 확인하세요: ${block.locator}`);
     if (pendingPeriod && DATE.test(line)) { deadlines.push({ raw: line, evidence: { ...evidence(doc, block), locators: [block.locator] }, review_status: 'needs_review' }); pendingPeriod = null; continue; }
     if (mode === 'period' && h?.topic === 'period') {
@@ -145,8 +151,16 @@ export function extract(doc) {
       if (name && isDocName(name)) add(block, name, 'conditional', line);
       continue;
     }
-    const name = clean(line).split(/\s*▶|\s+-\s|\s+※(?![^()]*\))/)[0].trim();
-    if (!(SUB_ENUM.test(line) || MAIN_ENUM.test(line) || inTable) || name.length > 50 || !isDocName(name)) continue;
+    // Bulleted items one level below the section heading ("󰁷 주민등록등본, 가족관계증명서").
+    if (bullet && bullet !== openBullet && !MAIN_ENUM.test(line.replace(BULLET, '')) && /[,、]/.test(line.replace(/\([^)]*\)/g, ''))) {
+      const condition = conditionOf(line);
+      for (const name of splitList(clean(line))) add(block, name, condition ? 'conditional' : 'required', condition);
+      continue;
+    }
+    // "서류 : 금융거래확인서" or "농업·임업 : 농업경영체 증명서" — keep whichever side of the colon names a document.
+    const [left, right] = clean(line).split(/\s*▶|\s+-\s|\s+※(?![^()]*\))/)[0].trim().split(/\s+[:：]\s+/);
+    const name = right !== undefined && !isDocName(left) ? right.trim() : left;
+    if (!(SUB_ENUM.test(line) || MAIN_ENUM.test(line) || inTable || bullet && bullet !== openBullet) || name.length > 50 || !isDocName(name)) continue;
     const condition = conditionOf(line);
     add(block, name, condition ? 'conditional' : 'required', condition);
   }

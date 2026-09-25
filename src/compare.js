@@ -84,7 +84,18 @@ function documentChanges(before, after, cb, ca) {
   const [pb, pa] = [cb.deadlines[0], ca.deadlines[0]];
   if (pb && pa && key(yearless(pb.raw, programYear(before))) !== key(yearless(pa.raw, programYear(after))))
     changes.push({ type: 'period_changed', category: 'period', summary: `신청기간: ${clip(pb.raw, 60)} → ${clip(pa.raw, 60)}`, before: pb.evidence, after: pa.evidence, score: 10 });
-  return changes;
+  // Many unmatched names usually mean the list was reworded; show them as one item per side instead of a flood.
+  const grouped = [];
+  for (const [type, side, label] of [['document_removed', 'before', '삭제'], ['document_added', 'after', '추가']]) {
+    const items = changes.filter(c => c.type === type);
+    if (items.length < 3) { grouped.push(...items); continue; }
+    const evidences = items.map(c => c[side]);
+    grouped.push({ type, category: 'documents', summary: `제출서류 ${label} 후보 ${items.length}건: ${items.map(c => c.summary.replace(/^제출서류 (?:추가|삭제) 후보: /, '')).join(', ')}`,
+      before: side === 'before' ? { ...evidences[0], locators: [...new Set(evidences.flatMap(e => e.locators ?? [e.locator]))] } : null,
+      after: side === 'after' ? { ...evidences[0], locators: [...new Set(evidences.flatMap(e => e.locators ?? [e.locator]))] } : null,
+      items: items.map(c => ({ summary: c.summary, evidence: c[side] })), score: 10 });
+  }
+  return [...grouped, ...changes.filter(c => c.type !== 'document_removed' && c.type !== 'document_added')];
 }
 
 export function compareNotices(before, after) {

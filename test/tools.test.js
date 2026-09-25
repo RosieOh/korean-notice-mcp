@@ -50,3 +50,9 @@ test('CLI: compare가 사람이 읽는 순위 목록을 출력한다',async()=>{
   assert.match(out,/1\. high\s+서류 추가\s+제출서류 추가 후보: 주민등록초본/);
   assert.match(out,/\[조건부\] 사업자등록증 사본/);
 });
+test('공고: 괄호 설명이 붙은 제목, 신청접수, 글머리 기호 목록을 읽는다',()=>{
+  const doc=lines=>({file:'t',sha256:'t',parser:'test',tables:[],warnings:[],blocks:lines.map((text,i)=>({locator:`line${i+1}`,text}))});
+  const r=extract(doc([' 신청접수 : 2026. 7. 1. ~ 7. 20.',' 신청서류 (공고일 이후 발급된 서류에 한함)',' 지원 신청서',' 주민등록등본, 가족관계증명서',' 제외 대상자',' 수급자 확인서류를 가진 자']));
+  assert.equal(r.deadlines.length,1);
+  assert.deepEqual(r.requirements.map(x=>x.name),['지원 신청서','주민등록등본','가족관계증명서']);
+});

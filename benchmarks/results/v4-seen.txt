@@ -1,0 +1,26 @@
+
+## baseline (all, 8 pairs)
+서류 재현율 59% (150/254), 정밀도 8% (150/1780), 필수/조건부 일치 69%
+신청기간 적중 0/16, 후보 수 평균 0.0
+변경 재현율 high 61/61, medium 65/65; 상위 15개 안의 high 9/61; 검토할 변경 항목 2603개
+  club: 서류 0/7(+0) 0/7(+0) · 기간 XX · high 4/4 top15 1 · 항목 335
+  savings: 서류 20/20(+191) 20/20(+192) · 기간 XX · high 4/4 top15 1 · 항목 242
+  housing: 서류 13/19(+212) 13/19(+228) · 기간 XX · high 6/6 top15 0 · 항목 192
+  allowance: 서류 9/14(+64) 9/14(+236) · 기간 XX · high 5/5 top15 2 · 항목 538
+  settlement: 서류 0/16(+0) 18/19(+305) · 기간 XX · high 15/15 top15 0 · 항목 472
+  gunsan-newlywed-loan: 서류 0/12(+0) 0/16(+0) · 기간 XX · high 15/15 top15 4 · 항목 324
+  yongin-youth-community: 서류 6/12(+43) 6/12(+43) · 기간 XX · high 4/4 top15 0 · 항목 125
+  daejeon-youth-savings: 서류 15/22(+52) 21/25(+64) · 기간 XX · high 8/8 top15 1 · 항목 375
+
+## improved (all, 8 pairs)
+서류 재현율 81% (205/254), 정밀도 94% (205/217), 필수/조건부 일치 85%
+신청기간 적중 16/16, 후보 수 평균 1.3
+변경 재현율 high 61/61, medium 65/65; 상위 15개 안의 high 49/61; 검토할 변경 항목 643개
+  club: 서류 6/7(+0) 6/7(+0) · 기간 OO · high 4/4 top15 4 · 항목 53
+  savings: 서류 20/20(+0) 20/20(+0) · 기간 OO · high 4/4 top15 3 · 항목 54
+  housing: 서류 18/19(+1) 18/19(+1) · 기간 OO · high 6/6 top15 4 · 항목 47
+  allowance: 서류 13/14(+2) 13/14(+2) · 기간 OO · high 5/5 top15 4 · 항목 105
+  settlement: 서류 13/16(+0) 15/19(+0) · 기간 OO · high 15/15 top15 11 · 항목 135
+  gunsan-newlywed-loan: 서류 7/12(+0) 9/16(+1) · 기간 OO · high 15/15 top15 13 · 항목 119
+  yongin-youth-community: 서류 10/12(+0) 10/12(+0) · 기간 OO · high 4/4 top15 4 · 항목 43
+  daejeon-youth-savings: 서류 14/22(+3) 13/25(+2) · 기간 OO · high 8/8 top15 6 · 항목 87

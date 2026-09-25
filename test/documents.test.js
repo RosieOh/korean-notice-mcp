@@ -55,3 +55,8 @@ test('CSV: 인용된 쉼표와 BOM 지원, 불균일 열 거부',()=>{
   assert.deepEqual(csvRows('\uFEFF항목,금액\n인쇄비,"10,000"'),[['항목','금액'],['인쇄비','10,000']]);
   assert.throws(()=>csvRows('a,b\nx,y,z'),{code:'INVALID_CSV'});
 });
+test('HWPX: 하이퍼링크 필드 설정값이 본문에 섞이지 않는다',async()=>tempFiles(async dir=>{
+  const xml='<?xml version="1.0" encoding="UTF-8"?><hs:sec xmlns:hs="s" xmlns:hp="p"><hp:p><hp:run><hp:t>이메일 접수(</hp:t><hp:ctrl><hp:fieldBegin type="HYPERLINK"><hp:parameters><hp:stringParam name="Command">mailto:a@example.invalid;2;0;0</hp:stringParam><hp:stringParam name="Category">HWPHYPERLINK_TYPE_EMAIL</hp:stringParam></hp:parameters></hp:fieldBegin></hp:ctrl></hp:run><hp:run><hp:t>a@example.invalid</hp:t></hp:run><hp:run><hp:ctrl><hp:fieldEnd/></hp:ctrl><hp:t>)</hp:t></hp:run></hp:p></hs:sec>';
+  await writeFile(path.join(dir,'link.hwpx'),zipSync({'Contents/section0.xml':strToU8(xml)}));
+  const d=await readDocument(dir,'link.hwpx');assert.equal(d.blocks[0].text,'이메일 접수(a@example.invalid)');
+}));

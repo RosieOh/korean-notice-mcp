@@ -19,7 +19,7 @@ export async function runServer(name, tools, sampleUrl) {
     }
     return;
   }
-  const server = new McpServer({ name, version: '0.1.0' });
+  const server = new McpServer({ name, version: '0.2.0' });
   for (const tool of tools) {
     server.registerTool(tool.name, {
       description: tool.description,

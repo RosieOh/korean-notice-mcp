@@ -43,3 +43,10 @@ test('실제 공고(로컬): rhwp 표 구조 복원과 제출서류 추출',{ski
   const names=extract(doc).requirements.map(r=>r.name);
   for(const name of ['지원신청서','서약서','통장사본(본인)','재직증명서']) assert.ok(names.includes(name),name);
 });
+test('CLI: compare가 사람이 읽는 순위 목록을 출력한다',async()=>{
+  const { execFile } = await import('node:child_process');
+  const examples=fileURLToPath(new URL('../examples/',import.meta.url));
+  const out=await new Promise((resolve,reject)=>execFile(process.execPath,[fileURLToPath(new URL('../src/server.js',import.meta.url)),'compare',examples+'before.txt',examples+'after.txt'],(e,stdout)=>e?reject(e):resolve(stdout)));
+  assert.match(out,/1\. high\s+서류 추가\s+제출서류 추가 후보: 주민등록초본/);
+  assert.match(out,/\[조건부\] 사업자등록증 사본/);
+});

@@ -6,25 +6,23 @@
 
 > "올해 청년동아리 공고와 작년 공고를 비교해서, 바뀐 신청조건과 내가 준비할 서류를 근거와 함께 알려줘."
 
-아래는 실제 공개 공고(장수군 청년동아리 2025 HWP → 2026 HWPX)에 `compare_notices`를 실행한 결과의 상위 4개 항목입니다. 긴 문장은 `…`로 줄였습니다.
+![작년·올해 청년동아리 공고 비교 데모](https://raw.githubusercontent.com/RosieOh/korean-notice-mcp/main/docs/demo-compare.gif)
 
-```text
-순위 중요도 종류                  요약                                                        근거(작년 → 올해)
-1    high   document_kind_changed 고유번호증 또는 사업자등록증: 필수 → 조건부                 rhwp/scan62 → section0/paragraph34
-2    high   period_changed        신청기간: 2025. 4. 14.(월) ~ 4. 29.(화) 18:00까지
-                                  → 2026. 5. 28.(목) ~ 6. 11.(목) 18:00까지                   rhwp/scan54 → section0/paragraph27
-3    high   modified              신청대상: …청년(15세이상 49세 이하)… → …청년(만 18세이상 49세 이하)…  rhwp/scan19 → section0/paragraph8
-4    medium table_changed         표의 8개 셀 변경: 지원금액 / 1,400만원 / 1·2위 …           - → section0/table2/row1/cell2
-```
-
-4번 표는 "동아리당 200만원"이 "순위별 250·200·150만원 차등"으로 바뀐 지원금 표입니다. 각 항목의 근거 위치를 `get_evidence`에 넣으면 해당 원문을 다시 확인할 수 있습니다.
+위 화면은 실제 공개 공고(장수군 청년동아리 2025 HWP → 2026 HWPX)를 비교한 출력을 그대로 녹화한 것입니다. 1위는 "고유번호증 또는 사업자등록증"이 필수에서 조건부로 바뀐 것, 2위는 신청기간, 3위는 신청 연령 하한이 15세에서 만 18세로 오른 것입니다. 각 항목의 근거 위치를 `get_evidence`에 넣으면 해당 원문을 다시 확인할 수 있습니다.
 
 ## 빠르게 써 보기
 
-Node.js 22 이상이 필요합니다. 설치 없이 합성 예시로 동작을 확인할 수 있습니다.
+Node.js 22 이상이 필요합니다.
 
 ```bash
-npx -y github:RosieOh/korean-notice-mcp --demo
+# 가진 공고 두 개를 바로 비교
+npx -y korean-notice-mcp compare 2025-공고.hwp 2026-공고.hwpx
+
+# 공고 하나의 제출서류·신청기간만 보기
+npx -y korean-notice-mcp checklist 2026-공고.hwpx
+
+# 합성 예시로 MCP 도구 응답(JSON) 확인
+npx -y korean-notice-mcp --demo
 ```
 
 ### Claude Desktop에 연결
@@ -34,9 +32,9 @@ npx -y github:RosieOh/korean-notice-mcp --demo
 ```json
 {
   "mcpServers": {
-    "gonggo": {
+    "korean-notice": {
       "command": "npx",
-      "args": ["-y", "github:RosieOh/korean-notice-mcp"],
+      "args": ["-y", "korean-notice-mcp"],
       "env": { "MCP_DATA_DIR": "C:\\Users\\me\\Documents\\공고" }
     }
   }
@@ -93,6 +91,23 @@ npm run fetch-corpus   # data/raw/에 공고 10건 저장, 해시가 다르면 �
 npm run evaluate
 npm test
 ```
+
+## 비슷한 프로젝트와의 차이
+
+HWP를 AI에서 읽는 도구는 이미 좋은 것이 많습니다. 이 프로젝트는 그 위에서 **공고 한 종류를 깊게** 다룹니다.
+
+| 프로젝트 | 잘하는 것 | 이 프로젝트와의 관계 |
+|---|---|---|
+| [kordoc](https://github.com/chrisryugj/kordoc) | HWP·HWPX·PDF·DOCX 파싱, 서식 채우기, 문서 비교(신구대조표) MCP | 범용 문서 파서·비교. 공고의 필수/조건부 서류, 신청기간, 변경 중요도 같은 의미 단위는 다루지 않음. PDF 공고는 kordoc 쪽이 적합 |
+| [rhwp](https://github.com/edwardkim/rhwp) | HWP/HWPX 뷰어·편집기(Rust+WASM), 내장 MCP 서버 | 이 프로젝트의 HWP 파싱 엔진(`@rhwp/core`) |
+| [treesoop/hwp-mcp](https://github.com/treesoop/hwp-mcp) | rhwp 기반 HWP 읽기·쓰기·변환 MCP | 범용 HWP 도구. 공고 해석 기능은 없음 |
+| 나라장터·공공데이터포털 MCP 서버들 | 공고·입찰 **검색**(API) | 첨부 HWP는 읽지 않음. "검색 → 첨부 내려받기 → 이 서버로 분석"으로 함께 쓰기 좋음 |
+
+이 프로젝트만의 부분은 세 가지입니다.
+
+- 공고 전용 추출: 제출서류(필수/조건부와 조건 문구)와 신청기간을 뽑습니다.
+- 전년 대비 변경: 연도만 바뀐 문구는 따로 분리하고, 나머지 변경을 중요도 순으로 정렬합니다.
+- 공개 평가: 실제 공고와 정답표로 만든 평가 세트를 함께 공개합니다.
 
 ## 기여
 

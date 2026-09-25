@@ -1,15 +1,38 @@
 {
   "name": "korean-notice-mcp",
   "version": "0.2.0",
+  "mcpName": "io.github.RosieOh/korean-notice-mcp",
   "description": "한국 공공 모집공고(HWP/HWPX)의 제출서류·신청기간을 원문 근거와 함께 추출하고, 작년 공고와 바뀐 점을 비교하는 MCP 서버",
   "type": "module",
   "license": "MIT",
   "author": "RosieOh",
-  "repository": { "type": "git", "url": "git+https://github.com/RosieOh/korean-notice-mcp.git" },
-  "keywords": ["mcp", "model-context-protocol", "hwp", "hwpx", "korean", "public-notice", "공고", "한글"],
-  "bin": { "korean-notice-mcp": "src/server.js" },
-  "files": ["src", "examples", "README.md", "LICENSE", "SECURITY.md"],
-  "engines": { "node": ">=22" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RosieOh/korean-notice-mcp.git"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "hwp",
+    "hwpx",
+    "korean",
+    "public-notice",
+    "공고",
+    "한글"
+  ],
+  "bin": {
+    "korean-notice-mcp": "src/server.js"
+  },
+  "files": [
+    "src",
+    "examples",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "start": "node src/server.js",
     "demo": "node src/server.js --demo",

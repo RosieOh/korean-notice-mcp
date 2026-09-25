@@ -47,11 +47,12 @@ function descendants(nodes, target, result = []) {
   }
   return result;
 }
-function textContent(nodes) {
+// Visible text lives only in <hp:t>; field parameters (e.g. hyperlink commands) must not leak into the body.
+function textContent(nodes, inText = false) {
   let result = '';
   for (const node of nodes || []) for (const [key, children] of Object.entries(node)) {
-    if (key === '#text') result += String(children);
-    else if (key !== 'tbl' && Array.isArray(children)) result += textContent(children) + (key === 'p' ? '\n' : '');
+    if (key === '#text') { if (inText) result += String(children); }
+    else if (key !== 'tbl' && key !== 'parameters' && Array.isArray(children)) result += textContent(children, inText || key === 't') + (key === 'p' ? '\n' : '');
   }
   return result;
 }

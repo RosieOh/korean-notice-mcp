@@ -38,5 +38,29 @@
   "settlement-2026": {
     "sha256": "94d7c99771a02ff62154ecdea0d72d92f98e20804736a038cf2ca73ab354d04f",
     "bytes": 91136
+  },
+  "gunsan-newlywed-loan-2025": {
+    "sha256": "6b64a0092a3cd3f581b34925873d548a8442d9cfcb655f1110877a43b199fcc9",
+    "bytes": 77312
+  },
+  "gunsan-newlywed-loan-2026": {
+    "sha256": "1e08028af0161bd17ce65321b99e2e448c927a691d250dce5bc06c4a67bbbc85",
+    "bytes": 90292
+  },
+  "yongin-youth-community-2025": {
+    "sha256": "878e4694202425403a9b19f1fe7ffd1638826648d61d25d009de5575a8e4d63a",
+    "bytes": 172544
+  },
+  "yongin-youth-community-2026": {
+    "sha256": "aae284d49a9cde409bd88feaaadf937538423fb79d497303d6e4ac7378ecbb32",
+    "bytes": 160256
+  },
+  "daejeon-youth-savings-2025": {
+    "sha256": "38ee774b3c90abae2161aaf1dc214a2a66d7057002ef7d6e178cc5a79fa55da4",
+    "bytes": 80384
+  },
+  "daejeon-youth-savings-2026": {
+    "sha256": "bf5e05e6d9becc798024049e611464bad099ad296b67f1a1ca69374c0ff1c124",
+    "bytes": 104388
   }
 }

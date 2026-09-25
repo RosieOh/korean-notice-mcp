@@ -1,0 +1,660 @@
+{
+  "pair": "yongin-youth-community",
+  "annotator": "ai-draft-blind",
+  "notes": "판단 사항: (1) 제출서류는 본문 '※제출서류※' 목록(①~⑦)과 [표지]의 '제출서류 목록' 표를 둘 다 제출 목록으로 보고 locator에 넣음. [서식1] 안의 '첨부서류' 칸, [서식5] 뒤 '[※증빙서류] …붙임' 안내문(2025 scan567 / 2026 scan563), 활동비 예산 기준표의 집행 증빙(회의록·견적서 등)은 서식 내용이거나 사업 중 정산 증빙이라 뺌. (2) '용인시 청년임을 증빙할 수 있는 자료'는 required 상위 항목으로, 주민등록초본(거주자)·재학(휴학)증명서·재직증명서(활동자)는 해당자별 conditional로 분리함. 표지 표의 '(주민등록초본, 재학증명서, 재직증명서 등)'도 각 서류 locator에 포함. (3) 고유번호증(프로젝트팀 최종 선정 후)과 자부담금 입금 증빙서류(선정 후)는 선정 후 제출이라 conditional. (4) 2025 목록은 ⑥이 두 번 나오는 번호 오류가 있고 2026에서 ⑦로 고쳐짐 — 서류 구성 자체는 두 해가 같아서 documents 변경은 없음. (5) 2026 신설 '다. 운영내용'(월 1회 모임, 회계교육·성과공유회 참석, 결과물 제출)은 신청 자격이 아니라 선정 후 의무라 obligation/medium으로 둠. 15일 이내 정산서 제출은 작년에도 9항에 있었으므로 low. (6) 동아리 10→5팀, 프로젝트 4→5팀은 선정 가능성(돈)에 직접 영향이라 high, 파생된 총 14팀→10팀은 medium. (7) 거주/활동 문구 '직장 및 학교'→'학교 및 직장', '청년단체'→'청년 모임', 문의처 부서명(청년담당관→청년정책과), 섹션 번호 재편(6~9항→'6. 연간 운영 계획' 하위)은 순서/표기 변경으로 보고 뺌. 활동계획서 서식의 활동기간 미리 기재 등 서식만의 변경도 뺌.",
+  "documents": {
+    "yongin-youth-community-2025": {
+      "submission_documents": [
+        {
+          "name": "표지",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan86"
+          ],
+          "quote": "① 표지"
+        },
+        {
+          "name": "사업신청서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan86",
+            "rhwp/scan155"
+          ],
+          "quote": "② 사업신청서"
+        },
+        {
+          "name": "활동계획서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan86",
+            "rhwp/scan157"
+          ],
+          "quote": "③ 활동계획서"
+        },
+        {
+          "name": "활동비 집행계획서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan86",
+            "rhwp/scan159"
+          ],
+          "quote": "④ 활동비 집행계획서"
+        },
+        {
+          "name": "커뮤니티 회원명단",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan87",
+            "rhwp/scan161"
+          ],
+          "quote": "⑤ 커뮤니티 회원명단"
+        },
+        {
+          "name": "개인정보 수집·이용·제공 동의서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan87",
+            "rhwp/scan163"
+          ],
+          "quote": "[서식5] 개인정보 수집·이용·제공 동의서"
+        },
+        {
+          "name": "용인시 청년임을 증빙할 수 있는 자료(구성원 전체)",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan88",
+            "rhwp/scan165"
+          ],
+          "quote": "⑥ 신청일 기준 용인시 청년임을 증빙할 수 있는 자료"
+        },
+        {
+          "name": "주민등록초본(뒷자리 마스킹)",
+          "kind": "conditional",
+          "condition": "용인시 거주자(청년 증빙자료로 제출)",
+          "locators": [
+            "rhwp/scan89",
+            "rhwp/scan166"
+          ],
+          "quote": "주민등록초본(뒷자리 마스킹)"
+        },
+        {
+          "name": "재학(휴학)증명서",
+          "kind": "conditional",
+          "condition": "용인시 활동자 중 관내 학교 재학·휴학생",
+          "locators": [
+            "rhwp/scan90",
+            "rhwp/scan166"
+          ],
+          "quote": "재학(휴학)증명서"
+        },
+        {
+          "name": "재직증명서",
+          "kind": "conditional",
+          "condition": "용인시 활동자 중 관내 직장 재직자",
+          "locators": [
+            "rhwp/scan90",
+            "rhwp/scan166"
+          ],
+          "quote": "재직증명서"
+        },
+        {
+          "name": "고유번호증",
+          "kind": "conditional",
+          "condition": "프로젝트팀 최종 선정 후(사업신청서상 모임명으로 발급)",
+          "locators": [
+            "rhwp/scan98"
+          ],
+          "quote": "고유번호증 발급 및 제출 필수"
+        },
+        {
+          "name": "자부담금 입금 증빙서류",
+          "kind": "conditional",
+          "condition": "선정 후, 보조금 전용 통장에 자부담금 입금 뒤(선정팀 전체)",
+          "locators": [
+            "rhwp/scan99"
+          ],
+          "quote": "자부담금 입금 후 증빙서류 제출"
+        }
+      ],
+      "application_period": {
+        "text": "'25. 1. 23.(목) ~ 2. 9.(일) (18일간)",
+        "locators": [
+          "rhwp/scan78"
+        ]
+      },
+      "eligibility": [
+        {
+          "item": "구성원 수",
+          "text": "3인 이상의 청년으로 구성된 커뮤니티",
+          "locators": [
+            "rhwp/scan12"
+          ]
+        },
+        {
+          "item": "거주지/활동지",
+          "text": "용인시에 주소를 두고 있거나 관내 소재 직장 및 학교에 다니고 있는 청년",
+          "locators": [
+            "rhwp/scan13"
+          ]
+        },
+        {
+          "item": "연령",
+          "text": "기준 18세 ~ 39세",
+          "locators": [
+            "rhwp/scan14"
+          ]
+        },
+        {
+          "item": "생년월일",
+          "text": "1985. 1. 2. ~ 2007. 1. 1.",
+          "locators": [
+            "rhwp/scan15"
+          ]
+        },
+        {
+          "item": "구성원 전원 요건",
+          "text": "모임 구성원 전원 용인시 거주 또는 활동 중이어야 함",
+          "locators": [
+            "rhwp/scan16"
+          ]
+        },
+        {
+          "item": "중복지원",
+          "text": "동일한 사업으로 타 사업에 참여 중인 경우 중복지원 불가",
+          "locators": [
+            "rhwp/scan18"
+          ]
+        },
+        {
+          "item": "제외: 목적",
+          "text": "단순 친목 도모, 정치·종교·영리목적, 학원·공방 등 수익창출 목적",
+          "locators": [
+            "rhwp/scan69"
+          ]
+        },
+        {
+          "item": "제외: 보조금 중복수혜",
+          "text": "동일(유사)사업으로 보조금을 중복지원받고 있는 경우",
+          "locators": [
+            "rhwp/scan70"
+          ]
+        },
+        {
+          "item": "제외: 강사 주도 모임",
+          "text": "강사가 리더가 되어 일정의 강사료를 받고 운영되는 모임",
+          "locators": [
+            "rhwp/scan71"
+          ]
+        },
+        {
+          "item": "제외: 일회성",
+          "text": "일회성 교육 또는 모임",
+          "locators": [
+            "rhwp/scan72"
+          ]
+        },
+        {
+          "item": "제외: 목적 불분명",
+          "text": "커뮤니티 구성원 및 운영 목적이 불분명한 모임",
+          "locators": [
+            "rhwp/scan73"
+          ]
+        },
+        {
+          "item": "제외: 판매 홍보물",
+          "text": "판매 또는 수익활동을 위한 홍보물 제작을 목적으로 하는 커뮤니티",
+          "locators": [
+            "rhwp/scan74"
+          ]
+        }
+      ]
+    },
+    "yongin-youth-community-2026": {
+      "submission_documents": [
+        {
+          "name": "표지",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan93"
+          ],
+          "quote": "① 표지"
+        },
+        {
+          "name": "사업신청서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan93",
+            "rhwp/scan154"
+          ],
+          "quote": "② 사업신청서"
+        },
+        {
+          "name": "활동계획서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan93",
+            "rhwp/scan156"
+          ],
+          "quote": "③ 활동계획서"
+        },
+        {
+          "name": "활동비 집행계획서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan93",
+            "rhwp/scan158"
+          ],
+          "quote": "④ 활동비 집행계획서"
+        },
+        {
+          "name": "커뮤니티 회원명단",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan94",
+            "rhwp/scan160"
+          ],
+          "quote": "⑤ 커뮤니티 회원명단"
+        },
+        {
+          "name": "개인정보 수집·이용·제공 동의서",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan94",
+            "rhwp/scan162"
+          ],
+          "quote": "[서식5] 개인정보 수집·이용·제공 동의서"
+        },
+        {
+          "name": "용인시 청년임을 증빙할 수 있는 자료(구성원 전체)",
+          "kind": "required",
+          "condition": null,
+          "locators": [
+            "rhwp/scan95",
+            "rhwp/scan164"
+          ],
+          "quote": "⑦ 신청일 기준 용인시 청년임을 증빙할 수 있는 자료"
+        },
+        {
+          "name": "주민등록초본(뒷자리 마스킹)",
+          "kind": "conditional",
+          "condition": "용인시 거주자(청년 증빙자료로 제출)",
+          "locators": [
+            "rhwp/scan96",
+            "rhwp/scan165"
+          ],
+          "quote": "주민등록초본(뒷자리 마스킹)"
+        },
+        {
+          "name": "재학(휴학)증명서",
+          "kind": "conditional",
+          "condition": "용인시 활동자 중 관내 학교 재학·휴학생",
+          "locators": [
+            "rhwp/scan97",
+            "rhwp/scan165"
+          ],
+          "quote": "재학(휴학)증명서"
+        },
+        {
+          "name": "재직증명서",
+          "kind": "conditional",
+          "condition": "용인시 활동자 중 관내 직장 재직자",
+          "locators": [
+            "rhwp/scan97",
+            "rhwp/scan165"
+          ],
+          "quote": "재직증명서"
+        },
+        {
+          "name": "고유번호증",
+          "kind": "conditional",
+          "condition": "프로젝트팀 최종 선정 후(사업신청서상 모임명으로 발급)",
+          "locators": [
+            "rhwp/scan107"
+          ],
+          "quote": "고유번호증 발급 및 제출 필수"
+        },
+        {
+          "name": "자부담금 입금 증빙서류",
+          "kind": "conditional",
+          "condition": "선정 후, 보조금 전용 통장에 자부담금 입금 뒤(선정팀 전체)",
+          "locators": [
+            "rhwp/scan108"
+          ],
+          "quote": "자부담금 입금 후 증빙서류 제출"
+        }
+      ],
+      "application_period": {
+        "text": "'26. 1. 29.(목) ~ 2. 18.(수) 18:00 (21일)",
+        "locators": [
+          "rhwp/scan85"
+        ]
+      },
+      "eligibility": [
+        {
+          "item": "구성원 수",
+          "text": "3인 이상의 청년으로 구성된 커뮤니티",
+          "locators": [
+            "rhwp/scan12"
+          ]
+        },
+        {
+          "item": "거주지/활동지",
+          "text": "용인시에 주소를 두고 있거나 관내 소재 학교 및 직장에 다니고 있는 청년",
+          "locators": [
+            "rhwp/scan13"
+          ]
+        },
+        {
+          "item": "연령",
+          "text": "기준 18세 ~ 39세",
+          "locators": [
+            "rhwp/scan14"
+          ]
+        },
+        {
+          "item": "생년월일",
+          "text": "1986. 1. 2. ~ 2008. 1. 1.",
+          "locators": [
+            "rhwp/scan15"
+          ]
+        },
+        {
+          "item": "구성원 전원 요건",
+          "text": "모임 구성원 전원 용인시 거주 또는 활동 중이어야 함",
+          "locators": [
+            "rhwp/scan16"
+          ]
+        },
+        {
+          "item": "중복지원",
+          "text": "동일·유사 사업으로 타 사업에 참여 중인 경우 중복지원 불가",
+          "locators": [
+            "rhwp/scan18"
+          ]
+        },
+        {
+          "item": "제외: 목적",
+          "text": "단순 친목 도모, 정치·종교·영리목적, 학원·공방 등 수익창출 목적",
+          "locators": [
+            "rhwp/scan76"
+          ]
+        },
+        {
+          "item": "제외: 보조금 중복수혜",
+          "text": "동일(유사)사업으로 보조금을 중복지원받고 있는 경우",
+          "locators": [
+            "rhwp/scan77"
+          ]
+        },
+        {
+          "item": "제외: 강사 주도 모임",
+          "text": "강사가 리더가 되어 일정의 강사료를 받고 운영되는 모임",
+          "locators": [
+            "rhwp/scan78"
+          ]
+        },
+        {
+          "item": "제외: 일회성",
+          "text": "일회성 교육 또는 모임",
+          "locators": [
+            "rhwp/scan79"
+          ]
+        },
+        {
+          "item": "제외: 목적 불분명",
+          "text": "커뮤니티 구성원 및 운영 목적이 불분명한 모임",
+          "locators": [
+            "rhwp/scan80"
+          ]
+        },
+        {
+          "item": "제외: 판매 홍보물",
+          "text": "판매 또는 수익활동을 위한 홍보물 제작을 목적으로 하는 커뮤니티",
+          "locators": [
+            "rhwp/scan81"
+          ]
+        }
+      ]
+    }
+  },
+  "changes": [
+    {
+      "id": "c1",
+      "category": "amount",
+      "importance": "high",
+      "summary": "지원규모(동아리·비예치형): 작년 팀당 50만원 / 10개팀 → 올해 팀당 50만원 / 5개팀(선발 팀 수 절반으로 감소)",
+      "before_locators": [
+        "rhwp/scan21"
+      ],
+      "after_locators": [
+        "rhwp/scan21"
+      ]
+    },
+    {
+      "id": "c2",
+      "category": "amount",
+      "importance": "high",
+      "summary": "지원규모(프로젝트·예치형): 작년 팀당 250만원 / 4개팀 → 올해 팀당 250만원 / 5개팀",
+      "before_locators": [
+        "rhwp/scan22"
+      ],
+      "after_locators": [
+        "rhwp/scan22"
+      ]
+    },
+    {
+      "id": "c3",
+      "category": "selection",
+      "importance": "medium",
+      "summary": "총 선정 팀 수: 작년 선정된 14팀 → 올해 선정된 10팀(자부담금 입금 증빙 대상 팀 수)",
+      "before_locators": [
+        "rhwp/scan99"
+      ],
+      "after_locators": [
+        "rhwp/scan108"
+      ]
+    },
+    {
+      "id": "c4",
+      "category": "period",
+      "importance": "high",
+      "summary": "접수기간: 작년 '25. 1. 23.(목) ~ 2. 9.(일) (18일간) → 올해 '26. 1. 29.(목) ~ 2. 18.(수) 18:00 (21일)",
+      "before_locators": [
+        "rhwp/scan78"
+      ],
+      "after_locators": [
+        "rhwp/scan85"
+      ]
+    },
+    {
+      "id": "c5",
+      "category": "period",
+      "importance": "high",
+      "summary": "접수마감 시각: 작년 2. 9.(일) 23:00 → 올해 2. 18.(수) 18:00(마감 시각이 5시간 앞당겨짐)",
+      "before_locators": [
+        "rhwp/scan81"
+      ],
+      "after_locators": [
+        "rhwp/scan88"
+      ]
+    },
+    {
+      "id": "c6",
+      "category": "eligibility",
+      "importance": "medium",
+      "summary": "중복지원 불가 범위: 작년 '동일한 사업으로 타 사업에 참여 중인 경우' → 올해 '동일·유사 사업으로 타 사업에 참여 중인 경우'(유사 사업까지 확대)",
+      "before_locators": [
+        "rhwp/scan18"
+      ],
+      "after_locators": [
+        "rhwp/scan18"
+      ]
+    },
+    {
+      "id": "c7",
+      "category": "eligibility",
+      "importance": "low",
+      "summary": "청년 연령 기준일·생년월일: 작년 '25.1.1. 기준 18~39세(1985.1.2.~2007.1.1.) → 올해 '26.1.1. 기준 18~39세(1986.1.2.~2008.1.1.)(연도만 넘어감)",
+      "before_locators": [
+        "rhwp/scan14",
+        "rhwp/scan15"
+      ],
+      "after_locators": [
+        "rhwp/scan14",
+        "rhwp/scan15"
+      ]
+    },
+    {
+      "id": "c8",
+      "category": "obligation",
+      "importance": "medium",
+      "summary": "신설 운영내용: 사업 기간 내 최소 월 1회 이상 모임 필수",
+      "before_locators": [],
+      "after_locators": [
+        "rhwp/scan67",
+        "rhwp/scan68"
+      ]
+    },
+    {
+      "id": "c9",
+      "category": "obligation",
+      "importance": "medium",
+      "summary": "신설 운영내용: 회계교육 및 성과공유회 모임 참석 필수",
+      "before_locators": [],
+      "after_locators": [
+        "rhwp/scan69"
+      ]
+    },
+    {
+      "id": "c10",
+      "category": "obligation",
+      "importance": "medium",
+      "summary": "신설 운영내용: 운영 결과물(영상, PPT 등) 제출 필수",
+      "before_locators": [],
+      "after_locators": [
+        "rhwp/scan71"
+      ]
+    },
+    {
+      "id": "c11",
+      "category": "obligation",
+      "importance": "low",
+      "summary": "신설 운영내용: 활동종료 후 15일 이내 정산서 및 실적보고서 제출을 운영내용에 명시(작년에도 정산 결과보고서 '사업종료 후 15일 이내' 제출 의무는 있었음)",
+      "before_locators": [
+        "rhwp/scan116"
+      ],
+      "after_locators": [
+        "rhwp/scan70"
+      ]
+    },
+    {
+      "id": "c12",
+      "category": "other",
+      "importance": "low",
+      "summary": "신설: 모임 활동은 용인청년LAB에서 진행할 것을 권장",
+      "before_locators": [],
+      "after_locators": [
+        "rhwp/scan72"
+      ]
+    },
+    {
+      "id": "c13",
+      "category": "obligation",
+      "importance": "low",
+      "summary": "보조사업자 회계교육: 작년 '25. 4월 초, 보조금 집행 및 정산 방법 교육 → 올해 '26. 3월 말 또는 4월 초, 보조금 사용 및 정산방법·보탬e 사용방법 교육",
+      "before_locators": [
+        "rhwp/scan102",
+        "rhwp/scan103"
+      ],
+      "after_locators": [
+        "rhwp/scan112",
+        "rhwp/scan113"
+      ]
+    },
+    {
+      "id": "c14",
+      "category": "obligation",
+      "importance": "low",
+      "summary": "중간점검 시기: 작년 '25. 7월 중 → 올해 '26. 7 ~ 8월 중",
+      "before_locators": [
+        "rhwp/scan106"
+      ],
+      "after_locators": [
+        "rhwp/scan116"
+      ]
+    },
+    {
+      "id": "c15",
+      "category": "obligation",
+      "importance": "low",
+      "summary": "정산 결과보고서 내용: 작년 '보조금 사용 및 보조금 이자 발생 정산' → 올해 '보조금 사용 등에 대한 회계처리 및 운영실적 제출'(기한 11. 15.까지는 연도만 넘어감)",
+      "before_locators": [
+        "rhwp/scan116",
+        "rhwp/scan117"
+      ],
+      "after_locators": [
+        "rhwp/scan126",
+        "rhwp/scan127"
+      ]
+    },
+    {
+      "id": "c16",
+      "category": "amount",
+      "importance": "low",
+      "summary": "활동비 집행 유의사항(서식3): 올해 '동아리팀은 보조금 50만원, 프로젝트팀은 보조금 250만원으로 계획' 문구 추가, 보탬e전용카드 '반드시 사용해야 합니다' → '사용 원칙', 자부담 충당 수수료에 '카드대금 연체 등' 추가",
+      "before_locators": [
+        "rhwp/scan375",
+        "rhwp/scan376",
+        "rhwp/scan378"
+      ],
+      "after_locators": [
+        "rhwp/scan370",
+        "rhwp/scan371",
+        "rhwp/scan372",
+        "rhwp/scan374"
+      ]
+    },
+    {
+      "id": "c17",
+      "category": "other",
+      "importance": "low",
+      "summary": "활동분야 예시: 문화예술에 '공연' 등 창작활동 추가, 자기계발(→자기개발) 예시에서 '요리' 삭제(예시일 뿐 제한 아님)",
+      "before_locators": [
+        "rhwp/scan49",
+        "rhwp/scan50",
+        "rhwp/scan51",
+        "rhwp/scan53"
+      ],
+      "after_locators": [
+        "rhwp/scan49",
+        "rhwp/scan50",
+        "rhwp/scan52"
+      ]
+    },
+    {
+      "id": "c18",
+      "category": "period",
+      "importance": "low",
+      "summary": "활동기간: 작년 '25. 4월 중(교부일) ~ 10. 31. → 올해 '26. 4월 중(교부일) ~ 10. 31.(연도만 넘어감)",
+      "before_locators": [
+        "rhwp/scan37"
+      ],
+      "after_locators": [
+        "rhwp/scan37"
+      ]
+    }
+  ]
+}

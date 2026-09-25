@@ -67,6 +67,7 @@ We evaluated on 10 public notices: 5 programs × 2 years, all from one county. W
 Limitations, stated plainly:
 
 - **On the held-out pairs, the first blind run found only 43% of the documents.** One unfamiliar table layout made the extractor miss a whole document list. After fixing that one cause, recall reached 86%, but that number is no longer blind.
+- **A second blind run on 3 pairs from other governments (Gunsan, Yongin, Daejeon)** kept document precision at 90%, but recall was only 47%. For the Gunsan notices the extractor found no documents and no application period at all: it did not recognize the heading styles "신청서류 (…)" and "신청접수 :". Handling unfamiliar layouts is the main weakness today.
 - An AI drafted the gold labels by reading the originals. No human has reviewed them yet. The sample comes from a single county.
 - The extractor is rule-based. It may treat reference tables (for example "how to obtain documents") as submission lists, and it misses documents mentioned outside the documents section.
 - It does not decide legal meaning or eligibility. Always confirm with the original notice and the responsible office.

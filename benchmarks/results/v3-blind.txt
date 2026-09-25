@@ -1,0 +1,16 @@
+
+## baseline (blind_v3, 3 pairs)
+서류 재현율 48% (48/99), 정밀도 19% (48/250), 필수/조건부 일치 60%
+신청기간 적중 0/6, 후보 수 평균 0.0
+변경 재현율 high 27/27, medium 27/27; 상위 15개 안의 high 5/27; 검토할 변경 항목 824개
+  gunsan-newlywed-loan: 서류 0/12(+0) 0/16(+0) · 기간 XX · high 15/15 top15 4 · 항목 324
+  yongin-youth-community: 서류 6/12(+43) 6/12(+43) · 기간 XX · high 4/4 top15 0 · 항목 125
+  daejeon-youth-savings: 서류 15/22(+52) 21/25(+64) · 기간 XX · high 8/8 top15 1 · 항목 375
+
+## improved (blind_v3, 3 pairs)
+서류 재현율 47% (47/99), 정밀도 90% (47/52), 필수/조건부 일치 72%
+신청기간 적중 4/6, 후보 수 평균 1.2
+변경 재현율 high 27/27, medium 27/27; 상위 15개 안의 high 20/27; 검토할 변경 항목 253개
+  gunsan-newlywed-loan: 서류 0/12(+0) 0/16(+0) · 기간 XX · high 15/15 top15 13 · 항목 117
+  yongin-youth-community: 서류 10/12(+0) 10/12(+0) · 기간 OO · high 4/4 top15 4 · 항목 43
+  daejeon-youth-savings: 서류 14/22(+3) 13/25(+2) · 기간 OO · high 8/8 top15 3 · 항목 93

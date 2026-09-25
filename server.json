@@ -7,13 +7,15 @@
     "url": "https://github.com/RosieOh/korean-notice-mcp",
     "source": "github"
   },
-  "version": "0.2.0",
+  "version": "0.3.0",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "korean-notice-mcp",
-      "version": "0.2.0",
-      "transport": { "type": "stdio" },
+      "version": "0.3.0",
+      "transport": {
+        "type": "stdio"
+      },
       "environmentVariables": [
         {
           "name": "MCP_DATA_DIR",

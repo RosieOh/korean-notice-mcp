@@ -1,6 +1,6 @@
 {
   "name": "korean-notice-mcp",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "mcpName": "io.github.RosieOh/korean-notice-mcp",
   "description": "한국 공공 모집공고(HWP/HWPX)의 제출서류·신청기간을 원문 근거와 함께 추출하고, 작년 공고와 바뀐 점을 비교하는 MCP 서버",
   "type": "module",
